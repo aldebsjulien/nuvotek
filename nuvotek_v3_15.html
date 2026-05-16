@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nuvotek — Salesforce Financial Services Cloud Consultant Montreal | CRM Finance Québec</title>
+  <!-- SEO: Primary Meta Tags -->
+  <meta name="title" content="Nuvotek — Salesforce Consulting Montreal | Implémentation Salesforce Québec">
+  <meta name="description" content="Nuvotek is a certified Salesforce Financial Services Cloud specialist in Montreal. We implement Salesforce for wealth managers, banks, insurance firms and fintechs across Quebec and Canada. Bilingual EN/FR. | Spécialiste Salesforce FSC pour institutions financières à Montréal.">
+  <meta name="keywords" content="Salesforce Financial Services Cloud Montreal, Salesforce FSC consultant Canada, CRM wealth management Quebec, Salesforce insurance consultant Montreal, Salesforce banking CRM, KYC AML Salesforce automation, consultant Salesforce finance Montréal, CRM gestionnaire de patrimoine Québec, Salesforce fintech Canada, implémentation Salesforce FSC Québec, AMF compliance Salesforce, Salesforce private equity CRM, Financial Services Cloud implementation Canada">
+  <meta name="author" content="Nuvotek Inc.">
+  <meta name="robots" content="index, follow">
+  <meta name="language" content="English, French">
+  <link rel="canonical" href="https://www.nuvotek.ca/">
+
+  <!-- SEO: Open Graph (LinkedIn, Facebook, WhatsApp previews) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.nuvotek.ca/">
+  <meta property="og:title" content="Nuvotek — Salesforce Finance Specialist Montreal">
+  <meta property="og:description" content="Certified Salesforce Financial Services Cloud specialist in Montreal. We build CRM systems for wealth managers, banks, insurance firms and fintechs across Quebec and Canada.">
+  <meta property="og:image" content="https://www.nuvotek.ca/og-image.png">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:locale:alternate" content="fr_CA">
+  <meta property="og:site_name" content="Nuvotek">
+
+  <!-- SEO: Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://www.nuvotek.ca/">
+  <meta name="twitter:title" content="Nuvotek — Salesforce Consulting Montreal">
+  <meta name="twitter:description" content="Certified Salesforce partner in Montreal. End-to-end implementation, automation, and integrations for Quebec businesses.">
+  <meta name="twitter:image" content="https://www.nuvotek.ca/og-image.png">
+
+  <!-- SEO: Schema.org Local Business Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Nuvotek Inc.",
+    "image": "https://www.nuvotek.ca/og-image.png",
+    "url": "https://www.nuvotek.ca",
+    "email": "hello@nuvotek.ca",
+    "description": "Certified Salesforce consulting partner in Montreal offering end-to-end implementation, automation, data migration and CRM integrations for businesses across Quebec and Canada.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Montreal",
+      "addressRegion": "QC",
+      "addressCountry": "CA"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 45.5017,
+      "longitude": -73.5673
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Montreal" },
+      { "@type": "State", "name": "Quebec" },
+      { "@type": "Country", "name": "Canada" }
+    ],
+    "serviceType": [
+      "Salesforce Financial Services Cloud Implementation",
+      "Salesforce FSC Consulting",
+      "Wealth Management CRM",
+      "KYC AML Workflow Automation",
+      "Insurance CRM Implementation",
+      "Banking CRM Integration",
+      "Fintech Salesforce Consulting",
+      "Regulatory Compliance Automation",
+      "Data Migration",
+      "Salesforce Training"
+    ],
+    "knowsLanguage": ["en", "fr"],
+    "priceRange": "$$",
+    "sameAs": [
+      "https://www.linkedin.com/company/nuvotek"
+    ]
+  }
+  </script>
+
+  <!-- SEO: Geo targeting for Montreal -->
+  <meta name="geo.region" content="CA-QC">
+  <meta name="geo.placename" content="Montreal">
+  <meta name="geo.position" content="45.5017;-73.5673">
+  <meta name="ICBM" content="45.5017, -73.5673">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --dark:#060A0F;
+  --dark2:#0A1018;
+  --surface:#0E1520;
+  --cyan:#00C4E0;
+  --cyan2:#008FAA;
+  --green:#00D48A;
+  --white:#FFFFFF;
+  --light:#F4F7FA;
+  --light2:#E8EFF6;
+  --navy:#0A1628;
+  --text-dark:#0A1628;
+  --muted:#6B7A92;
+  --border:#D0DCE8;
+  --border-dark:rgba(255,255,255,0.07);
+}
+html{overflow-x:clip}
+body{
+  font-family:'Archivo',Verdana,sans-serif;
+  background:var(--light);
+  color:var(--text-dark);
+  overflow-x:clip;
+  cursor:none;
+}
+
+/* CUSTOM CURSOR */
+.cursor{
+  position:fixed;width:10px;height:10px;
+  background:var(--cyan);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width 0.2s,height 0.2s,background 0.2s;
+  mix-blend-mode:difference;
+}
+.cursor-ring{
+  position:fixed;width:36px;height:36px;
+  border:1.5px solid var(--cyan);border-radius:50%;
+  pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:all 0.12s ease;
+  opacity:0.5;
+}
+
+/* SCROLL INDICATOR */
+.scroll-bar{position:fixed;top:0;left:0;height:2px;background:linear-gradient(90deg,var(--cyan),var(--green));z-index:300;width:0}
+.lang-toggle{
+  background:transparent;
+  border:1.5px solid var(--border);
+  color:var(--muted);
+  padding:0.4rem 0.85rem;
+  border-radius:4px;
+  font-size:0.75rem;font-weight:700;
+  letter-spacing:0.1em;
+  cursor:none;
+  font-family:'Archivo',Verdana,sans-serif;
+  transition:border-color 0.2s,color 0.2s,background 0.2s;
+}
+.lang-toggle:hover{border-color:var(--cyan);color:var(--cyan)}
+nav.scrolled .lang-toggle{border-color:rgba(255,255,255,0.2);color:rgba(255,255,255,0.5)}
+nav.scrolled .lang-toggle:hover{border-color:var(--cyan);color:var(--cyan)}
+
+/* NAV */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  padding:1.25rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:background 0.5s,backdrop-filter 0.5s,border-color 0.5s;
+  border-bottom:1px solid transparent;
+}
+nav.scrolled{
+  background:rgba(4,8,15,0.92);
+  backdrop-filter:blur(24px);
+  border-bottom-color:var(--border-dark);
+}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-wordmark{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-weight:900;font-size:1.3rem;
+  color:var(--text-dark);letter-spacing:-0.04em;
+  text-transform:uppercase;
+  transition:color 0.4s;
+}
+.nav-wordmark span{color:var(--cyan)}
+nav.scrolled .nav-wordmark{color:#fff}
+.nav-links{display:flex;align-items:center;gap:2.5rem;list-style:none}
+.nav-links a{
+  color:var(--muted);text-decoration:none;
+  font-size:0.8125rem;font-weight:600;
+  letter-spacing:0.06em;text-transform:uppercase;
+  transition:color 0.2s;
+}
+.nav-links a:hover{color:var(--text-dark)}
+nav.scrolled .nav-links a{color:rgba(255,255,255,0.5)}
+nav.scrolled .nav-links a:hover{color:#fff}
+.nav-cta{
+  background:var(--cyan);color:#fff;
+  padding:0.6rem 1.5rem;border-radius:4px;
+  font-size:0.8125rem;font-weight:700;
+  letter-spacing:0.06em;text-transform:uppercase;
+  text-decoration:none;
+  transition:background 0.2s,transform 0.15s;
+  border:none;cursor:none;font-family:'Archivo',Verdana,sans-serif;
+}
+.nav-cta:hover{background:var(--cyan2);transform:translateY(-1px)}
+
+/* HERO */
+.hero{
+  background:var(--light);
+  min-height:100vh;
+  display:flex;flex-direction:column;justify-content:center;
+  padding:9rem 3rem 5rem;
+  position:relative;overflow:visible;
+}
+.hero-noise{
+  position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events:none;opacity:0.4;
+}
+.hero-glow{
+  position:absolute;width:800px;height:800px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,196,224,0.08) 0%,transparent 65%);
+  top:-200px;right:-200px;pointer-events:none;
+}
+.hero-glow2{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(0,212,138,0.06) 0%,transparent 65%);
+  bottom:-100px;left:0;pointer-events:none;
+}
+.hero-inner{max-width:1200px;margin:0 auto;width:100%;position:relative;z-index:1}
+.hero-label{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  font-size:0.72rem;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--cyan2);
+  margin-bottom:2rem;
+  opacity:0;
+}
+.hero-label-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero h1{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:clamp(3.5rem,8vw,7rem);
+  font-weight:900;
+  line-height:0.95;
+  letter-spacing:-0.04em;
+  text-transform:uppercase;
+  color:var(--navy);
+  margin-bottom:2rem;
+  overflow:hidden;
+}
+
+
+
+ .hero h1 .typed-line{min-height:1.1em;display:block}
+
+.hero-sub{
+  font-size:1rem;color:var(--muted);
+  max-width:480px;line-height:1.75;
+  margin-bottom:3rem;font-weight:400;
+  opacity:0;transform:translateY(20px);
+}
+.hero-actions{
+  display:flex;gap:1rem;flex-wrap:wrap;
+  opacity:0;transform:translateY(20px);
+}
+.btn-primary{
+  background:var(--navy);color:#fff;
+  padding:1rem 2.25rem;border-radius:4px;
+  font-weight:700;font-size:0.875rem;
+  text-decoration:none;
+  letter-spacing:0.04em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  transition:background 0.2s,transform 0.15s;
+  font-family:'Archivo',Verdana,sans-serif;
+}
+.btn-primary:hover{background:var(--cyan);transform:translateY(-2px)}
+.btn-secondary{
+  color:var(--navy);
+  padding:1rem 2.25rem;border-radius:4px;
+  font-weight:600;font-size:0.875rem;
+  text-decoration:none;
+  letter-spacing:0.04em;text-transform:uppercase;
+  display:inline-flex;align-items:center;gap:0.5rem;
+  border:1.5px solid var(--border);
+  transition:border-color 0.2s,background 0.2s;
+  font-family:'Archivo',Verdana,sans-serif;
+}
+.btn-secondary:hover{border-color:var(--cyan);background:rgba(0,196,224,0.05)}
+
+/* STATS */
+.stats-strip{
+  background:var(--navy);
+  padding:3rem;
+  display:flex;gap:0;
+}
+.stat-item{
+  flex:1;padding:1rem 2rem;
+  border-right:1px solid rgba(255,255,255,0.08);
+  opacity:0;transform:translateY(30px);
+}
+.stat-item:last-child{border-right:none}
+.stat-num{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:2.75rem;font-weight:900;
+  color:#fff;letter-spacing:-0.04em;
+  line-height:1;display:block;margin-bottom:0.4rem;
+}
+.stat-num em{color:var(--cyan);font-style:normal}
+.stat-lbl{
+  font-size:0.75rem;color:rgba(255,255,255,0.4);
+  text-transform:uppercase;letter-spacing:0.1em;font-weight:600;
+}
+
+/* SECTIONS */
+section{padding:8rem 3rem}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-eyebrow{
+  font-size:0.72rem;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--cyan2);margin-bottom:1.25rem;
+  opacity:0;transform:translateY(20px);
+}
+.section-h2{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:clamp(2.25rem,5vw,4rem);
+  font-weight:900;line-height:0.95;
+  letter-spacing:-0.04em;text-transform:uppercase;
+  color:var(--navy);margin-bottom:1.5rem;
+}
+.section-h2 em{font-style:italic;font-weight:300;color:var(--cyan)}
+.section-sub{
+  font-size:1rem;color:var(--muted);
+  max-width:480px;line-height:1.75;
+  margin-bottom:4rem;font-weight:400;
+}
+
+/* SERVICES */
+.services-bg{background:var(--light2)}
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5px;
+  background:var(--border);
+  border:1.5px solid var(--border);
+  border-radius:8px;overflow:hidden;
+}
+.svc{
+  background:var(--light);
+  padding:2.5rem;
+  position:relative;overflow:hidden;
+  transition:background 0.3s;
+}
+.svc::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.svc:hover{background:#fff}
+.svc:hover::after{transform:scaleX(1)}
+.svc-num{
+  font-size:0.7rem;font-weight:700;
+  letter-spacing:0.14em;text-transform:uppercase;
+  color:rgba(0,196,224,0.4);margin-bottom:2rem;
+}
+.svc-icon{font-size:2rem;margin-bottom:1.25rem;display:block}
+.svc h3{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:1.25rem;font-weight:800;
+  color:var(--navy);margin-bottom:0.75rem;
+  letter-spacing:-0.02em;text-transform:uppercase;
+}
+.svc p{font-size:0.9rem;color:var(--muted);line-height:1.7}
+.svc-tags{display:flex;flex-wrap:wrap;gap:0.4rem;margin-top:1.5rem}
+.stag{
+  font-size:0.68rem;font-weight:700;letter-spacing:0.08em;
+  text-transform:uppercase;
+  padding:0.25rem 0.7rem;border-radius:3px;
+  background:rgba(0,196,224,0.08);
+  color:var(--cyan2);
+  border:1px solid rgba(0,196,224,0.18);
+}
+
+/* PROCESS — DARK */
+.process-section{background:var(--dark);color:#fff}
+.process-section .section-h2{color:#fff}
+.process-section .section-sub{color:rgba(255,255,255,0.4)}
+.process-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5px;background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:8px;overflow:hidden;
+}
+.pstep{
+  background:var(--surface);
+  padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+  transition:background 0.3s;
+}
+.pstep:hover{background:#111d2e}
+.pstep-num{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:3rem;font-weight:900;
+  color:rgba(0,196,224,0.12);
+  letter-spacing:-0.04em;
+  line-height:1;margin-bottom:2rem;
+  display:block;
+}
+.pstep h4{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:0.9375rem;font-weight:800;
+  color:#fff;margin-bottom:0.75rem;
+  letter-spacing:0.02em;text-transform:uppercase;
+}
+.pstep p{font-size:0.875rem;color:rgba(255,255,255,0.4);line-height:1.65}
+.pstep-bar{
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.pstep:hover .pstep-bar{transform:scaleX(1)}
+
+/* WHY — LIGHT */
+.why-section{background:var(--light)}
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5px;background:var(--border);
+  border:1.5px solid var(--border);
+  border-radius:8px;overflow:hidden;
+}
+.why-card{
+  background:var(--light);
+  padding:2.5rem 2rem;
+  transition:background 0.3s;
+  position:relative;overflow:hidden;
+}
+.why-card:hover{background:#fff}
+.why-card::after{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.why-card:hover::after{transform:scaleX(1)}
+.why-ico{font-size:1.75rem;margin-bottom:1.25rem;display:block}
+.why-card h4{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:0.9375rem;font-weight:800;
+  color:var(--navy);margin-bottom:0.6rem;
+  text-transform:uppercase;letter-spacing:0.02em;
+}
+.why-card p{font-size:0.875rem;color:var(--muted);line-height:1.65}
+
+/* TYPED HERO */
+
+
+
+
+/* CTA */
+.cta-section{background:var(--navy);padding:8rem 3rem;text-align:center}
+.cta-section h2{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:clamp(2.5rem,6vw,5.5rem);
+  font-weight:900;letter-spacing:-0.04em;
+  text-transform:uppercase;
+  color:#fff;line-height:0.95;
+  margin-bottom:1.5rem;
+}
+.cta-section h2 em{font-style:italic;font-weight:300;color:transparent;-webkit-text-stroke:2px var(--cyan)}
+.cta-section p{color:rgba(255,255,255,0.4);max-width:420px;margin:0 auto 2.5rem;font-size:1rem;line-height:1.7}
+
+/* FOOTER */
+footer{
+  background:var(--dark);
+  padding:2rem 3rem;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+  border-top:1px solid var(--border-dark);
+}
+.footer-wm{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-weight:900;font-size:1rem;
+  color:#fff;letter-spacing:-0.03em;
+  text-transform:uppercase;
+}
+.footer-wm span{color:var(--cyan)}
+footer p{font-size:0.8rem;color:rgba(255,255,255,0.25);letter-spacing:0.02em}
+
+/* GSAP INITIAL STATES */
+.gsap-fade{opacity:0;transform:translateY(40px)}
+
+/* ── H1 & TYPED – clean rewrite ── */
+.hero h1 {
+  font-family: 'Archivo', Verdana, sans-serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  color: var(--navy);
+  margin-bottom: 2rem;
+  width: 100%;
+  word-break: keep-all;
+}
+.hero h1 .line {
+  display: block;
+  overflow: hidden;
+}
+.hero h1 .line:not(.typed-line) span {
+  display: block;
+  transform: translateY(110%);
+}
+.hero h1 .line.typed-line > span {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  transform: translateY(0);
+  overflow: visible;
+}
+#typed {
+  color: var(--cyan);
+  display: inline;
+  white-space: nowrap;
+  max-width: calc(100vw - 6rem);
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 300;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--cyan);
+}
+/* Typed line: never clips, never reflows */
+.hero h1 .line.typed-line {
+  overflow: visible;
+  min-height: 1.05em;
+}
+.hero h1 .line.typed-line > span {
+  display: flex !important;
+  align-items: baseline;
+  white-space: nowrap;
+  transform: none !important;
+}
+#typed {
+  color: var(--cyan);
+  /* Fixed width = widest word so nothing ever shifts */
+  display: inline-block;
+  min-width: 160px;
+  white-space: nowrap;
+}
+.typed-cursor {
+  color: var(--cyan);
+  animation: typed-blink 0.7s infinite;
+}
+@keyframes typed-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+@media (max-width: 1300px) {
+  .hero h1 { font-size: clamp(2.5rem, 6vw, 5.5rem); }
+}
+@media (max-width: 900px) {
+  .hero h1 { font-size: clamp(2rem, 8vw, 4rem); }
+}
+
+/* FINANCE SECTION */
+.finance-section{background:var(--light);padding:7rem 3rem}
+.finance-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1.5px;
+  background:var(--border);
+  border:1.5px solid var(--border);
+  border-radius:8px;
+  overflow:hidden;
+  margin-bottom:1.5rem;
+}
+.finance-card{
+  background:var(--light);
+  padding:2.5rem 2rem;
+  transition:background 0.3s;
+  position:relative;overflow:hidden;
+}
+.finance-card::after{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--cyan),var(--green));
+  transform:scaleX(0);transform-origin:left;
+  transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+.finance-card:hover{background:#fff}
+.finance-card:hover::after{transform:scaleX(1)}
+.finance-ico{font-size:2rem;margin-bottom:1.25rem}
+.finance-card h4{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:0.9375rem;font-weight:800;
+  color:var(--navy);margin-bottom:0.6rem;
+  text-transform:uppercase;letter-spacing:0.02em;
+}
+.finance-card p{font-size:0.875rem;color:var(--muted);line-height:1.65;font-weight:500}
+.trust-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1rem;
+  margin-top:1rem;
+}
+.trust-item{
+  display:flex;align-items:center;gap:0.75rem;
+  background:#fff;
+  border:1.5px solid var(--border);
+  border-radius:8px;
+  padding:1rem 1.25rem;
+}
+.trust-icon{font-size:1.1rem}
+.trust-text{
+  font-size:0.8rem;font-weight:700;
+  color:var(--navy);line-height:1.4;
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="scroll-bar" id="scrollBar"></div>
+
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <svg width="30" height="30" viewBox="0 0 96 96" fill="none">
+      <defs>
+        <radialGradient id="ng" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00C4E0" stop-opacity="0.2"/><stop offset="100%" stop-color="#00C4E0" stop-opacity="0"/></radialGradient>
+        <linearGradient id="nl" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#00C4E0"/><stop offset="100%" stop-color="#00D48A"/></linearGradient>
+      </defs>
+      <ellipse cx="48" cy="48" rx="44" ry="44" fill="url(#ng)"/>
+      <circle cx="48" cy="48" r="6" fill="#00C4E0" opacity="0.95"/>
+      <circle cx="48" cy="18" r="3.5" fill="#00C4E0" opacity="0.8"/>
+      <circle cx="48" cy="78" r="3.5" fill="#00C4E0" opacity="0.8"/>
+      <circle cx="18" cy="48" r="3.5" fill="#00C4E0" opacity="0.8"/>
+      <circle cx="78" cy="48" r="3.5" fill="#00C4E0" opacity="0.8"/>
+      <circle cx="27" cy="27" r="3" fill="#00D48A" opacity="0.75"/>
+      <circle cx="69" cy="27" r="3" fill="#00D48A" opacity="0.75"/>
+      <circle cx="27" cy="69" r="3" fill="#00D48A" opacity="0.6"/>
+      <circle cx="69" cy="69" r="3" fill="#00D48A" opacity="0.6"/>
+      <line x1="48" y1="42" x2="48" y2="22" stroke="url(#nl)" stroke-width="1.5" opacity="0.7"/>
+      <line x1="48" y1="54" x2="48" y2="74" stroke="url(#nl)" stroke-width="1.5" opacity="0.7"/>
+      <line x1="42" y1="48" x2="22" y2="48" stroke="url(#nl)" stroke-width="1.5" opacity="0.7"/>
+      <line x1="54" y1="48" x2="74" y2="48" stroke="url(#nl)" stroke-width="1.5" opacity="0.7"/>
+      <line x1="44" y1="44" x2="31" y2="31" stroke="#00D48A" stroke-width="1" opacity="0.5"/>
+      <line x1="52" y1="44" x2="65" y2="31" stroke="#00D48A" stroke-width="1" opacity="0.5"/>
+      <line x1="44" y1="52" x2="31" y2="65" stroke="#00D48A" stroke-width="1" opacity="0.4"/>
+      <line x1="52" y1="52" x2="65" y2="65" stroke="#00D48A" stroke-width="1" opacity="0.4"/>
+    </svg>
+    <span class="nav-wordmark">Nuvo<span>tek</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#industries">Industries</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#why">Why Us</a></li>
+    <li><a href="#contact" class="nav-cta" data-en="Book a Call" data-fr="Réserver un appel">Book a Call</a></li>
+    <li><button class="lang-toggle" id="langToggle" onclick="toggleLang()">FR</button></li>
+  </ul>
+</nav>
+
+<section class="hero" id="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div class="hero-label"><span class="hero-label-dot"></span> <span id="hero-badge" data-en="Certified Salesforce Partner" data-fr="Partenaire Salesforce Certifié">Certified Salesforce Partner</span></div>
+    <h1>
+      <span class="line"><span id="h1-line1">Your CRM,</span></span>
+      <span class="line"><span><em id="h1-line2">Reimagined</em></span></span>
+      <span class="line typed-line"><span><span id="h1-line3">For Your</span>&nbsp;&nbsp;<span id="typed"></span></span></span>
+    </h1>
+    <p class="hero-sub" id="hero-sub"><span data-en="Nuvotek specializes in Salesforce for financial institutions — wealth managers, banks, insurance firms and fintechs across Quebec and Canada." data-fr="Nuvotek se spécialise en Salesforce pour les institutions financières — gestionnaires de patrimoine, banques, assureurs et fintechs au Québec et au Canada.">Nuvotek specializes in Salesforce for financial institutions — wealth managers, banks, insurance firms and fintechs across Quebec and Canada.</span></p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Start a project →</a>
+      <a href="#services" class="btn-secondary">Explore services</a>
+    </div>
+  </div>
+</section>
+
+<div class="stats-strip">
+  <div class="stat-item">
+    <span class="stat-num"><span class="count" data-target="50">0</span><em>+</em></span>
+    <span class="stat-lbl"><span data-en="Implementations delivered" data-fr="Implémentations livrées">Implementations delivered</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num"><span class="count" data-target="98">0</span><em>%</em></span>
+    <span class="stat-lbl"><span data-en="Client satisfaction rate" data-fr="Taux de satisfaction client">Client satisfaction rate</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num"><span class="count" data-target="8">0</span><em> yrs</em></span>
+    <span class="stat-lbl"><span data-en="Salesforce experience" data-fr="Expérience Salesforce">Salesforce experience</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-num"><span class="count" data-target="3">0</span><em>x</em></span>
+    <span class="stat-lbl"><span data-en="Average ROI delivered" data-fr="ROI moyen livré">Average ROI delivered</span>
+  </div>
+</div>
+
+<section class="services-bg" id="services">
+  <div class="section-inner">
+    <p class="section-eyebrow"><span data-en="Finance Expertise" data-fr="Expertise Finance">Finance Expertise</span></p>
+    <h2 class="section-h2 gsap-fade"><span data-en="Built for" data-fr="Conçu pour">Built for</span><br><em>Financial</em> <span data-en="institutions" data-fr="institutions financières">institutions</span></h2>
+    <p class="section-sub gsap-fade"><span data-en="We know Financial Services Cloud inside out — from KYC workflows to client 360 and regulatory reporting." data-fr="Nous maîtrisons Financial Services Cloud — des workflows KYC au client 360 et aux rapports réglementaires.">We know Financial Services Cloud inside out — from KYC workflows to client 360 and regulatory reporting.</span></p>
+    <div class="services-grid">
+      <div class="svc gsap-fade"><div class="svc-num">01</div><span class="svc-icon">⚙️</span><h3>Setup & Configuration</h3><p>Full org build from scratch — objects, layouts, roles, and profiles matched to your exact workflows.</p><div class="svc-tags"><span class="stag">Sales Cloud</span><span class="stag">Service Cloud</span><span class="stag">Org Design</span></div></div>
+      <div class="svc gsap-fade"><div class="svc-num">02</div><span class="svc-icon">🔄</span><h3 data-en="Data Migration" data-fr="Migration des données">Data Migration</h3><p>Clean, deduplicated, validated migration from any legacy CRM or spreadsheet into Salesforce.</p><div class="svc-tags"><span class="stag">Data Loader</span><span class="stag">Dedup</span><span class="stag">Mapping</span></div></div>
+      <div class="svc gsap-fade"><div class="svc-num">03</div><span class="svc-icon">⚡</span><h3>Automation & Flows</h3><p>Replace manual work with Flows, approval chains, and triggers that run your business 24/7.</p><div class="svc-tags"><span class="stag">Flow Builder</span><span class="stag">Apex</span><span class="stag">Approvals</span></div></div>
+      <div class="svc gsap-fade"><div class="svc-num">04</div><span class="svc-icon">🔗</span><h3 data-en="Integrations" data-fr="Intégrations">Integrations</h3><p>Connect your CRM to ERP, marketing, billing, and support tools via APIs or native connectors.</p><div class="svc-tags"><span class="stag">REST API</span><span class="stag">MuleSoft</span><span class="stag">Zapier</span></div></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="finance-section" id="industries">
+  <div class="section-inner">
+    <p class="section-eyebrow" style="opacity:1;transform:none">Who we serve</p>
+    <h2 class="section-h2 gsap-fade">Built for <em>finance</em><br>professionals</h2>
+    <p class="section-sub gsap-fade" data-en="We understand the unique compliance, reporting and relationship management challenges financial institutions face every day." data-fr="Nous comprenons les défis uniques de conformité, de reporting et de gestion des relations auxquels font face les institutions financières.">We understand the unique compliance, reporting and relationship management challenges financial institutions face every day.</p>
+    <div class="finance-grid">
+      <div class="finance-card gsap-fade">
+        <div class="finance-ico">🏦</div>
+        <h4 data-en="Wealth Management" data-fr="Gestion de patrimoine">Wealth Management</h4>
+        <p data-en="Client 360 views, household modelling, referral tracking and AUM reporting for advisors and portfolio managers." data-fr="Vue client 360, modélisation des ménages, suivi des références et rapports AUM pour conseillers et gestionnaires.">Client 360 views, household modelling, referral tracking and AUM reporting for advisors and portfolio managers.</p>
+      </div>
+      <div class="finance-card gsap-fade">
+        <div class="finance-ico">🏛️</div>
+        <h4 data-en="Banking" data-fr="Banque">Banking</h4>
+        <p data-en="KYC automation, loan origination workflows, branch performance dashboards and FINTRAC-compliant reporting." data-fr="Automatisation KYC, flux d'origination de prêts, tableaux de bord de performance des succursales et rapports conformes FINTRAC.">KYC automation, loan origination workflows, branch performance dashboards and FINTRAC-compliant reporting.</p>
+      </div>
+      <div class="finance-card gsap-fade">
+        <div class="finance-ico">🛡️</div>
+        <h4 data-en="Insurance" data-fr="Assurance">Insurance</h4>
+        <p data-en="Policy lifecycle management, claims tracking, broker portals and renewal automation for P&C and life insurers." data-fr="Gestion du cycle de vie des polices, suivi des sinistres, portails courtiers et automatisation des renouvellements.">Policy lifecycle management, claims tracking, broker portals and renewal automation for P&C and life insurers.</p>
+      </div>
+      <div class="finance-card gsap-fade">
+        <div class="finance-ico">🚀</div>
+        <h4 data-en="Fintech & PE" data-fr="Fintech & Capital-investissement">Fintech & PE</h4>
+        <p data-en="Deal flow pipelines, investor relations portals, cap table integrations and portfolio company tracking." data-fr="Pipelines de deal flow, portails relations investisseurs, intégrations cap table et suivi des sociétés en portefeuille.">Deal flow pipelines, investor relations portals, cap table integrations and portfolio company tracking.</p>
+      </div>
+    </div>
+    <div class="trust-strip gsap-fade">
+      <div class="trust-item">
+        <div class="trust-icon">✅</div>
+        <div class="trust-text" data-en="AMF & FINTRAC compliant workflows" data-fr="Workflows conformes AMF & FINTRAC">AMF & FINTRAC compliant workflows</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🔒</div>
+        <div class="trust-text" data-en="NDA & data security on every engagement" data-fr="NDA & sécurité des données sur chaque mandat">NDA & data security on every engagement</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🇨🇦</div>
+        <div class="trust-text" data-en="Bilingual EN/FR — rare in tech consulting" data-fr="Bilingue EN/FR — rare en consultation technologique">Bilingual EN/FR — rare in tech consulting</div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon">🏅</div>
+        <div class="trust-text" data-en="Salesforce FSC Certified Specialist" data-fr="Spécialiste certifié Salesforce FSC">Salesforce FSC Certified Specialist</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="process-section" id="process">
+  <div class="section-inner">
+    <p class="section-eyebrow" style="color:var(--cyan)"><span data-en="How it works" data-fr="Comment ça marche">How it works</span></p>
+    <h2 class="section-h2 gsap-fade"><span data-en="From kickoff" data-fr="Du lancement">From kickoff</span><br>to <em data-en="go-live" data-fr="la mise en ligne">go-live</em></h2>
+    <p class="section-sub gsap-fade"><span data-en="A proven 4-step framework that keeps every project on time, on budget, and built to last." data-fr="Un cadre éprouvé en 4 étapes qui garde chaque projet dans les délais, dans le budget et construit pour durer.">A proven 4-step framework that keeps every project on time, on budget, and built to last.</span></p>
+    <div class="process-grid">
+      <div class="pstep gsap-fade"><div class="pstep-bar"></div><span class="pstep-num">01</span><h4 data-en="Discovery" data-fr="Découverte">Discovery</h4><p>We map your processes, goals, and pain points in a focused kick-off session.</p></div>
+      <div class="pstep gsap-fade"><div class="pstep-bar"></div><span class="pstep-num">02</span><h4 data-en="Architecture" data-fr="Architecture">Architecture</h4><p>We design a Salesforce blueprint tailored to your exact business model.</p></div>
+      <div class="pstep gsap-fade"><div class="pstep-bar"></div><span class="pstep-num">03</span><h4 data-en="Build" data-fr="Développement">Build</h4><p>We configure, automate, and integrate — with weekly progress updates.</p></div>
+      <div class="pstep gsap-fade"><div class="pstep-bar"></div><span class="pstep-num">04</span><h4 data-en="Go-Live" data-fr="Lancement">Go-Live</h4><p>We launch, train your team, and support you for the first 30 days.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="why-section" id="why">
+  <div class="section-inner">
+    <p class="section-eyebrow"><span data-en="Why Nuvotek" data-fr="Pourquoi Nuvotek">Why Nuvotek</span></p>
+    <h2 class="section-h2 gsap-fade"><span data-en="Not an agency." data-fr="Pas une agence.">Not an agency.</span><br><span data-en="A" data-fr="Un">A</span> <em data-en="dedicated" data-fr="partenaire">dedicated</em> <span data-en="partner." data-fr="dédié.">partner.</span></h2>
+    <p class="section-sub gsap-fade"><span data-en="We keep a small client roster so every project gets our absolute best." data-fr="Nous travaillons avec peu de clients à la fois pour que chaque projet reçoive notre meilleur.">We keep a small client roster so every project gets our absolute best.</span></p>
+    <div class="why-grid">
+      <div class="why-card gsap-fade"><span class="why-ico">🎯</span><h4 data-en="Outcome-driven" data-fr="Axé sur les résultats">Outcome-driven</h4><p>Every decision tied to a business result — not a feature checkbox or billable hour.</p></div>
+      <div class="why-card gsap-fade"><span class="why-ico">📐</span><h4 data-en="Clean architecture" data-fr="Architecture propre">Clean architecture</h4><p>No hacks, no tech debt. Systems built to last years without rebuilding.</p></div>
+      <div class="why-card gsap-fade"><span class="why-ico">🤝</span><h4 data-en="Direct access" data-fr="Accès direct">Direct access</h4><p>You talk to the person doing the work — every call, every update.</p></div>
+      <div class="why-card gsap-fade"><span class="why-ico">📚</span><h4 data-en="Knowledge transfer" data-fr="Transfert de connaissances">Knowledge transfer</h4><p>We train your team to be self-sufficient the moment we hand over.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="contact">
+  <h2 class="gsap-fade"><span data-en="Ready to modernize" data-fr="Prêt à moderniser">Ready to modernize</span><br><em data-en="your financial" data-fr="votre CRM">your financial</em><br><span data-en="CRM?" data-fr="financier?">CRM?</span></h2>
+  <p class="gsap-fade"><span data-en="Book a free 30-minute discovery call. We'll show you exactly how Salesforce FSC can work for your firm." data-fr="Réservez un appel découverte gratuit de 30 minutes. Nous vous montrerons exactement comment Salesforce FSC peut fonctionner pour votre firme.">Book a free 30-minute discovery call. We'll show you exactly how Salesforce FSC can work for your firm.</span></p>
+  <a href="mailto:hello@nuvotek.ca" class="btn-primary gsap-fade" style="display:inline-flex;margin:0 auto"><span data-en="Book your free call →" data-fr="Réserver votre appel gratuit →">Book your free call →</span></a>
+</section>
+
+<footer>
+  <span class="footer-wm">Nuvo<span>tek</span></span>
+  <p>© 2026 Nuvotek Inc. — <span data-en="Salesforce Consulting Specialists" data-fr="Spécialistes Salesforce">Salesforce Consulting Specialists</span></p>
+</footer>
+
+<!-- Typed.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+<!-- GSAP + ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<!-- Typed.js -->
+
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+var typedInstance = null;
+
+// Custom cursor
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
+function animRing(){rx+=(mx-rx)*0.12;ry+=(my-ry)*0.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animRing)}
+animRing();
+document.querySelectorAll('a,button').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cursor.style.width='6px';cursor.style.height='6px';ring.style.width='52px';ring.style.height='52px';ring.style.opacity='0.8'});
+  el.addEventListener('mouseleave',()=>{cursor.style.width='10px';cursor.style.height='10px';ring.style.width='36px';ring.style.height='36px';ring.style.opacity='0.5'});
+});
+
+// Scroll bar
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY,t=document.body.scrollHeight-window.innerHeight;
+  document.getElementById('scrollBar').style.width=(s/t*100)+'%';
+  document.getElementById('navbar').classList.toggle('scrolled',s>80);
+});
+
+// Hero line animations
+gsap.timeline({delay:0.3})
+  .to('.hero-label',{opacity:1,y:0,duration:0.6,ease:'power3.out'})
+  .to('.hero h1 .line:not(.typed-line) span',{y:'0%',duration:0.9,stagger:0.12,ease:'power4.out'},'-=0.3')
+  .to('.hero-sub',{opacity:1,y:0,duration:0.7,ease:'power3.out'},'-=0.4')
+  .to('.hero-actions',{opacity:1,y:0,duration:0.6,ease:'power3.out'},'-=0.4');
+
+// Stats strip
+gsap.to('.stat-item',{
+  opacity:1,y:0,duration:0.7,stagger:0.12,ease:'power3.out',
+  scrollTrigger:{trigger:'.stats-strip',start:'top 85%'}
+});
+
+// Count up
+function countUp(el,target){
+  let s=0;const step=target/(60*1.2);
+  const t=setInterval(()=>{s+=step;if(s>=target){el.textContent=target;clearInterval(t)}else{el.textContent=Math.floor(s)}},1000/60);
+}
+ScrollTrigger.create({
+  trigger:'.stats-strip',start:'top 85%',once:true,
+  onEnter:()=>document.querySelectorAll('.count').forEach(c=>countUp(c,parseInt(c.dataset.target)))
+});
+
+// Section eyebrows
+gsap.utils.toArray('.section-eyebrow').forEach(el=>{
+  gsap.from(el,{opacity:0,y:20,duration:0.6,ease:'power3.out',
+    scrollTrigger:{trigger:el,start:'top 88%'}});
+});
+
+// GSAP fade elements
+gsap.utils.toArray('.gsap-fade').forEach((el,i)=>{
+  gsap.to(el,{
+    opacity:1,y:0,duration:0.8,
+    ease:'power3.out',
+    scrollTrigger:{trigger:el,start:'top 88%'},
+    delay:(i%4)*0.08
+  });
+});
+
+// Typed.js — fixed height container prevents layout shift
+typedInstance = new Typed('#typed', {
+  strings: ['Growth.', 'Clients.', 'Portfolio.', 'Future.'],
+  typeSpeed: 70,
+  backSpeed: 55,
+  backDelay: 2000,
+  startDelay: 400,
+  loop: true,
+  showCursor: true,
+  cursorChar: '|',
+  smartBackspace: false
+});
+
+// ── Language Toggle ──
+var currentLang = 'en';
+const typedStringsEN = ['Growth.', 'Clients.', 'Portfolio.', 'Future.'];
+const typedStringsFR = ['Succès.', 'Clients.', 'Futur.', 'AUM.'];
+
+function toggleLang() {
+  currentLang = currentLang === 'en' ? 'fr' : 'en';
+  const btn = document.getElementById('langToggle');
+  btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+
+  // Translate h1 lines manually to preserve structure
+  const h1Translations = {
+    'h1-line1': {en: 'Your CRM,', fr: 'Votre CRM,'},
+    'h1-line2': {en: 'Reimagined', fr: 'Réinventé'},
+    'h1-line3': {en: 'For Your', fr: 'Pour'},
+  };
+  Object.entries(h1Translations).forEach(([id, t]) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = currentLang === 'en' ? t.en : t.fr;
+  });
+
+  // Translate all other data-en/data-fr elements (skip h1 lines)
+  document.querySelectorAll('[data-en]').forEach(el => {
+    const val = currentLang === 'en' ? el.dataset.en : el.dataset.fr;
+    if (val) el.innerHTML = val;
+  });
+
+  // Restart typed with correct language
+  if (typedInstance) {
+    typedInstance.destroy();
+    document.getElementById('typed').innerHTML = '';
+  }
+  typedInstance = new Typed('#typed', {
+    strings: currentLang === 'en' ? typedStringsEN : typedStringsFR,
+    typeSpeed: 70,
+    backSpeed: 55,
+    backDelay: 2000,
+    startDelay: 300,
+    loop: true,
+    showCursor: true,
+    cursorChar: '|',
+    smartBackspace: false
+  });
+
+  // Update html lang attribute
+  document.documentElement.lang = currentLang;
+}
+
+
+
+</script>
+</body>
+</html>
