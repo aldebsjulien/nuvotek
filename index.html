@@ -550,36 +550,95 @@ section{padding:8rem 3rem}
 
 /* WHY — LIGHT */
 .why-section{background:var(--light)}
+/* why-grid replaced by why-zigzag */
 .why-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:1.5px;background:var(--border);
-  border:1.5px solid var(--border);
-  border-radius:8px;overflow:hidden;
+  gap:1.5rem;
+  background:transparent;
+  border:none;
+  border-radius:0;
+  overflow:visible;
 }
 .why-card{
-  background:var(--light);
-  padding:2.5rem 2rem;
-  transition:background 0.3s;
-  position:relative;overflow:hidden;
+  background:var(--navy);
+  border-radius:20px;
+  padding:1.75rem 1.5rem 1.5rem;
+  position:relative;
+  overflow:hidden;
+  border:1px solid rgba(0,180,216,0.2);
+  cursor:default;
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1),
+             border-color 0.35s,
+             box-shadow 0.35s,
+             background 0.35s;
+  display:flex;flex-direction:column;
+  box-shadow:0 8px 32px rgba(0,0,0,0.2), 0 0 0 1px rgba(0,180,216,0.08);
 }
-.why-card:hover{background:#fff}
+.why-card::before{
+  content:'';
+  position:absolute;
+  top:-40px;right:-40px;
+  width:130px;height:130px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,180,216,0.18) 0%,transparent 70%);
+  pointer-events:none;
+  transition:opacity 0.4s;
+}
+.why-card:hover{
+  transform:translateY(-5px) scale(1.01);
+  border-color:rgba(0,180,216,0.55);
+  box-shadow:0 24px 64px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,180,216,0.2), 0 0 40px rgba(0,180,216,0.1);
+  background:linear-gradient(135deg,#0f2038 0%,#0A1628 100%);
+}
+.why-card:hover::before{opacity:1.5}
 .why-card::after{
   content:'';position:absolute;
-  top:0;left:0;right:0;height:2px;
+  bottom:0;left:0;right:0;height:2px;
   background:linear-gradient(90deg,var(--cyan),var(--green));
-  transform:scaleX(0);transform-origin:left;
+  transform:scaleX(0.4);transform-origin:left;
   transition:transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  opacity:0.4;
 }
-.why-card:hover::after{transform:scaleX(1)}
-.why-ico{width:44px;height:44px;margin-bottom:1.25rem;display:flex;align-items:center;justify-content:center;background:rgba(0,180,216,0.06);border:1px solid rgba(0,180,216,0.15);border-radius:10px;padding:10px;}
+.why-card:hover::after{transform:scaleX(1);opacity:1}
+.why-card-num{
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:0.72rem;font-weight:900;
+  letter-spacing:0.18em;
+  color:rgba(0,180,216,0.6);
+  margin-bottom:1.1rem;
+  transition:color 0.3s;
+}
+.why-card:hover .why-card-num{color:var(--cyan)}
+.why-ico{
+  width:44px;height:44px;
+  margin-bottom:1.25rem;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(0,180,216,0.12);
+  border:1px solid rgba(0,180,216,0.25);
+  border-radius:12px;
+  color:var(--cyan);
+  transition:background 0.3s,box-shadow 0.3s,border-color 0.3s;
+  flex-shrink:0;
+}
+.why-card:hover .why-ico{
+  background:rgba(0,180,216,0.22);
+  border-color:rgba(0,180,216,0.5);
+  box-shadow:0 0 20px rgba(0,180,216,0.3);
+}
 .why-card h4{
   font-family:'Archivo',Verdana,sans-serif;
-  font-size:0.9375rem;font-weight:800;
-  color:var(--navy);margin-bottom:0.6rem;
-  text-transform:uppercase;letter-spacing:0.02em;
+  font-size:0.9375rem;font-weight:900;
+  color:#fff;
+  margin-bottom:0.6rem;
+  text-transform:uppercase;letter-spacing:0.03em;
 }
-.why-card p{font-size:0.875rem;color:var(--muted);line-height:1.65}
+.why-card p{
+  font-size:0.8125rem;
+  color:rgba(255,255,255,0.55);
+  line-height:1.7;
+  transition:color 0.3s;
+  flex:1;
+}
+.why-card:hover p{color:rgba(255,255,255,0.8)}
 
 /* TYPED HERO */
 
@@ -682,10 +741,8 @@ footer{
   animation: typed-blink 0.7s infinite;
 }
 @keyframes typed-blink { 0%,100%{opacity:1} 50%{opacity:0} }
-@media (max-width: 1300px) {
-  }
-@media (max-width: 900px) {
-  }
+
+
 
 /* FINANCE SECTION */
 .finance-section{background:var(--light);padding:7rem 3rem}
@@ -1080,11 +1137,13 @@ body.page-mode > .stats-strip{
   margin-top:0.25rem;
 }
 .no-juniors-quote{
-  background:rgba(0,180,216,0.06);
-  border:1px solid rgba(0,180,216,0.15);
+  background:rgba(0,180,216,0.12);
+  border:1.5px solid rgba(0,180,216,0.35);
   border-radius:10px;
   padding:1.25rem;
   position:relative;
+  overflow:hidden;
+  box-shadow:0 0 24px rgba(0,180,216,0.12), inset 0 0 20px rgba(0,180,216,0.04);
 }
 .quote-mark{
   font-family:'Archivo',Verdana,sans-serif;
@@ -2967,11 +3026,547 @@ body.page-mode > .stats-strip{
 }
 
 /* Hide on non-home pages & mobile */
-@media(max-width:900px){.hero-bg-logo{display:none}}
+@media(max-width:1440px){.hero-bg-logo{display:none}}
 
 
 /* Typographic ampersand */
 .amp{font-style:italic;font-family:Georgia,serif;letter-spacing:0}
+
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — TABLET (max 1100px)
+════════════════════════════════════════════════ */
+@media(max-width:1100px){
+  .cloud-selector{grid-template-columns:220px 1fr}
+  .no-juniors-banner{gap:2rem;padding:2.5rem}
+  .svc-featured{grid-template-columns:1fr;gap:2rem}
+  .svc-featured-right{align-items:flex-start}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .ind-grid{grid-template-columns:repeat(2,1fr)}
+  .process-flow{grid-template-columns:repeat(2,1fr);gap:2rem}
+  .process-flow-track{display:none}
+  .vp-section{gap:3rem;padding:4rem 2rem 0}
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — MOBILE (max 768px)
+════════════════════════════════════════════════ */
+@media(max-width:768px){
+
+  /* ── NAV ── */
+  nav{padding:1rem 1.25rem}
+  .nav-links{display:none}
+  .nav-wordmark{font-size:1.1rem}
+
+  /* ── HERO ── */
+  .hero{padding:6rem 1.25rem 3rem;min-height:auto}
+  .hero h1{font-size:clamp(2.6rem,11vw,4rem);margin-bottom:1.5rem}
+  .hero-service-pill{font-size:0.75rem;padding:0.6rem 1.2rem;margin-bottom:1.25rem}
+  .hero-sub{font-size:0.9rem;margin-bottom:2rem;max-width:100%}
+  .hero-actions{flex-direction:column;gap:0.75rem}
+  .hero-actions a{width:100%;justify-content:center;text-align:center}
+  .hero-chips{gap:0.4rem;margin-top:1.5rem}
+  .hero-chip{font-size:0.7rem;padding:0.4rem 0.8rem}
+  .hero-bg-logo{display:none}
+
+  /* ── VP SECTION ── */
+  .vp-section{
+    grid-template-columns:1fr;
+    gap:2rem;
+    padding:3rem 1.25rem 0;
+    margin:0;
+    border-radius:0 0 24px 24px;
+  }
+  .vp-left{max-width:100%}
+  .vp-headline{font-size:clamp(2rem,8vw,3rem)}
+  .vp-pillars{gap:0}
+  .vp-pillar{padding:1.25rem 0}
+  .vp-cta{width:100%;justify-content:center}
+
+  /* ── STATS STRIP ── */
+  .stats-strip{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    padding:2rem 1.25rem;
+    gap:0;
+  }
+  .stat-item{padding:1rem;border-right:none;border-bottom:1px solid rgba(255,255,255,0.08)}
+  .stat-item:nth-child(odd){border-right:1px solid rgba(255,255,255,0.08)}
+  .stat-item:nth-last-child(-n+2){border-bottom:none}
+  .stat-num{font-size:2rem}
+
+  /* ── SECTIONS ── */
+  section{padding:4rem 1.25rem}
+  .section-h2{font-size:clamp(1.75rem,7vw,2.5rem)}
+  .section-inner{max-width:100%}
+
+  /* ── SERVICES ── */
+  .svc-featured{
+    grid-template-columns:1fr;
+    padding:1.75rem;
+    gap:1.5rem;
+  }
+  .svc-featured-right{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  /* ── CLOUD SELECTOR MOBILE ── */
+  .cloud-selector{
+    display:block;
+    min-height:auto;
+    border-radius:12px;
+    overflow:visible;
+  }
+  /* Horizontal scrollable chip row */
+  .cloud-list{
+    flex-direction:row;
+    flex-wrap:nowrap;
+    padding:0.75rem;
+    gap:0.4rem;
+    overflow-x:auto;
+    overflow-y:visible;
+    scrollbar-width:none;
+    border-radius:12px 12px 0 0;
+  }
+  .cloud-list::-webkit-scrollbar{display:none}
+  .cloud-list-title{display:none}
+  .cloud-list-section-num{display:none}
+  .cloud-tile{
+    flex:0 0 auto;
+    flex-direction:column;
+    align-items:center;
+    gap:0.3rem;
+    padding:0.6rem 0.75rem;
+    min-height:auto;
+    min-width:60px;
+    border-left:none;
+    border-bottom:2px solid transparent;
+    border-radius:8px;
+    background:rgba(255,255,255,0.05);
+    text-align:center;
+  }
+  .cloud-tile.active{
+    border-left:none;
+    border-bottom-color:var(--cyan);
+    background:rgba(0,180,216,0.15);
+  }
+  .cloud-tile::after{display:none}
+  .cloud-tile-icon{
+    width:26px;height:26px;min-width:26px;
+    background:rgba(255,255,255,0.06);
+  }
+  .cloud-tile.active .cloud-tile-icon{background:rgba(0,180,216,0.25)}
+  /* Show name, hide sub */
+  .cloud-tile-info{display:flex;flex-direction:column}
+  .cloud-tile-name{
+    font-size:0.6rem;font-weight:800;
+    color:rgba(255,255,255,0.5);
+    line-height:1.2;white-space:nowrap;
+  }
+  .cloud-tile.active .cloud-tile-name{color:#fff;font-size:0.6rem}
+  .cloud-tile-sub{display:none}
+  .cloud-tile-arrow{display:none}
+
+  /* Panel area: use normal flow, not absolute positioning */
+  .cloud-detail{
+    min-height:auto;
+    background:#fff;
+    border-radius:0 0 12px 12px;
+    overflow:visible;
+    position:relative;
+  }
+  .cloud-panel{
+    position:relative;
+    display:none;
+    padding:1.25rem 1rem;
+    opacity:1;
+    transform:none;
+    overflow:visible;
+    inset:auto;
+  }
+  .cloud-panel.active{
+    display:block;
+    opacity:1;
+    transform:none;
+    position:relative;
+    pointer-events:all;
+  }
+  .panel-title{font-size:clamp(1.1rem,5vw,1.5rem);line-height:1}
+  .panel-tagline{font-size:0.8rem;margin-bottom:1rem}
+  .panel-stats{flex-wrap:wrap;gap:0.75rem;padding:0.75rem;margin-bottom:0.875rem}
+  .panel-stat-num{font-size:1.1rem}
+  .services-pills{flex-wrap:wrap;gap:0.3rem;margin-bottom:0.875rem}
+  .svc-pill{font-size:0.68rem;padding:0.3rem 0.65rem}
+  .detail-body{padding:0.75rem 0.875rem}
+  .detail-desc{font-size:0.775rem}
+  .detail-features li{font-size:0.73rem;padding:0.4rem 0.65rem}
+  .svc-row.svc-row-visual{flex-direction:column;gap:1.5rem}
+  .svc-row-left{flex:none;width:100%}
+  .svc-row-api-visual{width:100%;justify-content:flex-start}
+  .api-diagram{max-width:100%}
+
+  /* ── INDUSTRIES ── */
+  .ind-grid{grid-template-columns:1fr;gap:1.25rem}
+  .trust-strip{grid-template-columns:1fr;gap:0.75rem}
+
+  /* ── PROCESS ── */
+  .process-flow{
+    grid-template-columns:1fr;
+    gap:1.5rem;
+    margin-top:2rem;
+  }
+  .process-flow-track{display:none}
+  .pflow-step{align-items:flex-start;flex-direction:row;gap:1rem}
+  .pflow-connector{margin-bottom:0;flex-shrink:0}
+  .pflow-card{flex:1}
+  .process-bottom-strip{flex-direction:column;align-items:flex-start;gap:0.75rem}
+  .pbs-sep{display:none}
+
+  /* ── WHY US ── */
+  .why-grid{grid-template-columns:1fr;gap:0}
+  .no-juniors-banner{
+    grid-template-columns:1fr;
+    padding:2rem 1.25rem;
+    gap:2rem;
+  }
+  .no-juniors-right{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,0.07);padding-top:1.5rem}
+  .no-juniors-title{font-size:clamp(1.5rem,6vw,2.5rem)}
+  .exp-num{font-size:2.5rem}
+
+  /* ── CONTACT ── */
+  .contact-section{padding:4rem 1.25rem}
+  .contact-wrap{
+    grid-template-columns:1fr;
+    gap:2.5rem;
+  }
+  .contact-title{font-size:clamp(1.75rem,7vw,2.5rem)}
+  .form-row{grid-template-columns:1fr}
+  .contact-right{padding:1.5rem}
+
+  /* ── FOOTER ── */
+  .footer-new{padding:3rem 1.25rem 1.5rem}
+  .footer-top{
+    grid-template-columns:1fr;
+    gap:2.5rem;
+    padding-bottom:2.5rem;
+  }
+  .footer-links-wrap{
+    grid-template-columns:repeat(2,1fr);
+    gap:2rem;
+  }
+  .footer-tagline{max-width:100%}
+
+  /* ── PAGE/FOOTER SEPARATOR ── */
+  .sep-cta-strip{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:2.5rem 1.25rem;
+    gap:1.5rem;
+  }
+  .sep-cta-headline{font-size:clamp(1.2rem,5vw,1.6rem)}
+  .sep-cta-btn{width:100%;justify-content:center}
+  .sep-wave{height:40px}
+
+  /* ── VP MARQUEE ── */
+  .vp-marquee-wrap{margin-top:1.5rem}
+}
+
+/* ════════════════════════════════════════════════
+   RESPONSIVE — SMALL PHONES (max 480px)
+════════════════════════════════════════════════ */
+@media(max-width:480px){
+  .hero h1{font-size:clamp(2.2rem,12vw,3.2rem)}
+  .btn-primary,.btn-secondary{padding:0.875rem 1.5rem;font-size:0.8rem}
+  .footer-links-wrap{grid-template-columns:1fr}
+  .stats-strip{grid-template-columns:1fr}
+  .stat-item{border-right:none!important}
+  .stat-item:last-child{border-bottom:none}
+  .cloud-list{gap:0.25rem}
+  .no-juniors-banner{padding:1.5rem 1rem}
+}
+
+
+/* ══════════════════════════════════
+   HAMBURGER + MOBILE MENU
+══════════════════════════════════ */
+.nav-mobile-right{
+  display:none;
+  align-items:center;
+  gap:0.75rem;
+}
+.hamburger{
+  position:relative;z-index:202;
+  width:40px;height:40px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:5px;
+  background:none;border:none;
+  cursor:pointer;padding:4px;
+  border-radius:6px;
+  transition:background 0.2s;
+}
+.hamburger:hover{background:rgba(0,180,216,0.1)}
+.hamburger span{
+  display:block;
+  width:22px;height:2px;
+  background:var(--text-dark);
+  border-radius:2px;
+  transition:all 0.3s cubic-bezier(0.4,0,0.2,1);
+  transform-origin:center;
+}
+nav.scrolled .hamburger span{background:#fff}
+/* X state */
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Mobile menu overlay */
+.mobile-menu{
+  position:fixed;
+  inset:0;
+  z-index:201;
+  background:rgba(4,8,15,0.6);
+  backdrop-filter:blur(4px);
+  opacity:0;pointer-events:none;
+  transition:opacity 0.3s ease;
+}
+.mobile-menu.open{
+  opacity:1;pointer-events:all;
+}
+.mobile-menu-inner{
+  position:absolute;
+  top:0;right:0;
+  width:min(320px,88vw);
+  height:100%;
+  background:var(--navy);
+  border-left:1px solid rgba(255,255,255,0.07);
+  transform:translateX(100%);
+  transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  display:flex;flex-direction:column;
+  padding-top:7.5rem;
+}
+.mobile-menu.open .mobile-menu-inner{
+  transform:translateX(0);
+}
+.mobile-nav{
+  display:flex;flex-direction:column;
+  padding:0.5rem 0;
+  flex:1;
+}
+.mobile-nav-item{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem 1.75rem;
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:1rem;font-weight:700;
+  letter-spacing:0.02em;
+  color:rgba(255,255,255,0.65);
+  text-decoration:none;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  transition:all 0.2s;
+}
+.mobile-nav-item:hover{
+  color:#fff;
+  background:rgba(0,180,216,0.08);
+  padding-left:2rem;
+}
+.mobile-nav-item svg{opacity:0.3;transition:opacity 0.2s}
+.mobile-nav-item:hover svg{opacity:0.8;color:var(--cyan)}
+.mobile-nav-cta{
+  display:flex;align-items:center;justify-content:space-between;
+  margin:1.5rem 1.75rem;
+  padding:1rem 1.5rem;
+  background:var(--cyan);
+  border-radius:8px;
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:0.9rem;font-weight:800;
+  letter-spacing:0.06em;text-transform:uppercase;
+  color:var(--navy);
+  text-decoration:none;
+  transition:background 0.2s,transform 0.2s;
+}
+.mobile-nav-cta:hover{background:#00d4ff;transform:translateX(3px)}
+.mobile-menu-footer{
+  padding:1.5rem 1.75rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+
+
+@media(max-width:768px){
+  .cursor{display:none}
+  .cursor-ring{display:none}
+  .nav-links{display:none}
+  .nav-mobile-right{display:flex}
+  /* Hide desktop lang toggle, show mobile one */
+  nav > .lang-toggle{display:none}
+}
+
+
+/* Lang toggle inside mobile menu */
+.mobile-lang-btn{
+  display:flex;
+  align-items:center;justify-content:center;
+  margin:0.75rem 1.75rem 0;
+  padding:0.875rem;
+  background:transparent;
+  border:1.5px solid rgba(255,255,255,0.12);
+  border-radius:8px;
+  font-family:'Archivo',Verdana,sans-serif;
+  font-size:0.875rem;font-weight:800;
+  letter-spacing:0.12em;
+  color:rgba(255,255,255,0.5);
+  cursor:pointer;
+  transition:all 0.2s;
+  width:calc(100% - 3.5rem);
+}
+.mobile-lang-btn:hover{
+  border-color:var(--cyan);
+  color:var(--cyan);
+  background:rgba(0,180,216,0.06);
+}
+/* Remove the mobile-menu-footer styles since we deleted it */
+.mobile-menu-footer{display:none}
+
+
+/* ── MOBILE STATIC H1 ── */
+.hero-h1-mobile{display:none}
+.hero-h1-desktop{display:block}
+
+@media(max-width:768px){
+  .hero-h1-desktop{display:none}
+  .hero-h1-mobile{
+    display:block;
+    font-family:'Archivo',Verdana,sans-serif;
+    font-size:clamp(2.6rem,11vw,4rem);
+    font-weight:900;
+    line-height:0.95;
+    letter-spacing:-0.04em;
+    text-transform:uppercase;
+    color:var(--navy);
+    margin-bottom:1.5rem;
+    overflow:hidden;
+  }
+  .hero-h1-mobile .line{
+    display:block;
+    overflow:hidden;
+  }
+  .hero-h1-mobile em{
+    font-style:italic;
+    font-weight:300;
+    color:transparent;
+    -webkit-text-stroke:2px var(--cyan);
+    display:block;
+  }
+  .hero-h1-mobile span[data-en]{
+    display:block;
+  }
+}
+
+
+/* ══════════════════════════════════
+   WHY US — ZIGZAG SCROLL LAYOUT
+══════════════════════════════════ */
+.why-zigzag{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  margin-top:2rem;
+  max-width:900px;
+  margin-left:auto;
+  margin-right:auto;
+  width:100%;
+}
+
+/* SVG dashed path overlay */
+.why-path-svg{
+  position:absolute;
+  top:0;left:50%;
+  transform:translateX(-50%);
+  width:70%;height:100%;
+  pointer-events:none;
+  z-index:0;
+  opacity:0;
+  transition:opacity 0.6s ease;
+}
+.why-path-svg.visible{opacity:1}
+.why-path-line{
+  stroke-dashoffset:2000;
+  animation:none;
+  transition:stroke-dashoffset 0s;
+}
+.why-path-line.draw{
+  animation:drawPath 1.8s cubic-bezier(0.4,0,0.2,1) forwards;
+}
+@keyframes drawPath{
+  from{stroke-dashoffset:2000}
+  to{stroke-dashoffset:0}
+}
+
+/* Each row */
+.why-zrow{
+  display:grid;
+  grid-template-columns:minmax(0,380px) minmax(0,380px);
+  gap:3rem;
+  padding:0.75rem 0;
+  position:relative;
+  z-index:1;
+  justify-content:space-between;
+}
+.why-zrow-left{justify-content:start}
+.why-zrow-right{justify-content:end}
+.why-zspacer{}
+
+/* Cards start invisible, slide in on scroll */
+.why-zcard{
+  opacity:0;
+  transform:translateY(40px);
+  transition:opacity 0.6s ease, transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+.why-zcard.in-view{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* Left cards slide from left */
+.why-zrow-left .why-zcard{
+  transform:translateX(-40px) translateY(20px);
+}
+.why-zrow-left .why-zcard.in-view{
+  transform:translateX(0) translateY(0);
+}
+
+/* Right cards slide from right */
+.why-zrow-right .why-zcard{
+  transform:translateX(40px) translateY(20px);
+}
+.why-zrow-right .why-zcard.in-view{
+  transform:translateX(0) translateY(0);
+}
+
+/* ── Mobile: stack to single column ── */
+@media(max-width:768px){
+  .why-path-svg{display:none}
+  .why-zrow{
+    grid-template-columns:1fr;
+    gap:1.25rem;
+  }
+  .why-zspacer{display:none}
+  .why-zrow-left .why-zcard,
+  .why-zrow-right .why-zcard{
+    transform:translateY(30px);
+  }
+}
+
+
+/* ── QUOTE BOX BORDER DOT ── */
+.quote-border-dot{
+  position:absolute;
+  width:8px;height:8px;
+  border-radius:50%;
+  background:radial-gradient(circle, #00D4FF 0%, #00B4D8 70%);
+  box-shadow:0 0 8px 3px rgba(0,196,224,0.8), 0 0 16px 6px rgba(0,196,224,0.3);
+  pointer-events:none;
+  z-index:10;
+  transform:translate(-50%,-50%);
+  top:0;left:0;
+}
 
 </style>
 </head>
@@ -3078,7 +3673,49 @@ body.page-mode > .stats-strip{
     <li><a href="#" class="nav-cta" onclick="goTo('contact');return false" data-en="Contact Us" data-fr="Contactez-nous" data-en="Contact Us" data-fr="Contactez-nous">Contact Us</a></li>
     <li><button class="lang-toggle" id="langToggle" onclick="toggleLang()">FR</button></li>
   </ul>
+
+  <!-- Mobile right side: lang toggle + hamburger -->
+  <div class="nav-mobile-right">
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
+
+<!-- Mobile menu overlay -->
+<div class="mobile-menu" id="mobileMenu">
+  <div class="mobile-menu-inner">
+    <nav class="mobile-nav">
+      <a href="#" class="mobile-nav-item" onclick="goTo('home');closeMobileMenu();return false">
+        <span data-en="Home" data-fr="Accueil">Home</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="#" class="mobile-nav-item" onclick="goTo('services');closeMobileMenu();return false">
+        <span data-en="Services" data-fr="Services">Services</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="#" class="mobile-nav-item" onclick="goTo('industries');closeMobileMenu();return false">
+        <span data-en="Industries" data-fr="Industries">Industries</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="#" class="mobile-nav-item" onclick="goTo('process');closeMobileMenu();return false">
+        <span data-en="Process" data-fr="Processus">Process</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="#" class="mobile-nav-item" onclick="goTo('why');closeMobileMenu();return false">
+        <span data-en="Why Us" data-fr="Pourquoi nous">Why Us</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </a>
+      <a href="#" class="mobile-nav-cta" onclick="goTo('contact');closeMobileMenu();return false">
+        <span data-en="Contact Us" data-fr="Contactez-nous">Contact Us</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <!-- Language toggle inside mobile menu -->
+      <button class="mobile-lang-btn" id="langToggleMobile" onclick="toggleLang()">FR</button>
+    </nav>
+
+  </div>
+</div>
 
 <section class="hero" id="hero">
   <!-- ── BACKGROUND LOGO (right side, absolute, behind content) ── -->
@@ -3152,10 +3789,16 @@ body.page-mode > .stats-strip{
 
     <div class="hero-slogan">Always a <span class="slogan-clu">Clu</span> ahead</div>
 
-    <h1>
+    <h1 class="hero-h1-desktop">
       <span class="line"><span id="h1-line1">Your CRM,</span></span>
       <span class="line"><span><em id="h1-line2">Reimagined</em> <span id="h1-line3">For</span></span></span>
       <span class="line typed-line"><span><span id="h1-line4">Your</span>&nbsp;&nbsp;<span id="typed"></span></span></span>
+    </h1>
+    <!-- Static h1 for mobile — no animation, bilingual -->
+    <h1 class="hero-h1-mobile">
+      <span class="line"><span data-en="Your CRM," data-fr="Votre CRM,">Your CRM,</span></span>
+      <span class="line"><span><em data-en="Reimagined For" data-fr="Réinventé Pour">Reimagined For</em></span></span>
+      <span class="line"><span data-en="Your Success." data-fr="Votre Succès.">Your Success.</span></span>
     </h1>
 
     <p class="hero-sub" id="hero-sub"><span data-en="Clutek delivers end-to-end Salesforce solutions for Fintech, Retail and Technology companies across Quebec, Canada and the United States — from implementation to AI automation." data-fr="Clutek livre des solutions Salesforce complètes pour les entreprises Fintech, Retail et Tech au Québec, au Canada et aux États-Unis — de l'implémentation à l'automatisation IA.">Clutek delivers end-to-end Salesforce solutions for Fintech, Retail and Technology companies across Quebec, Canada and the United States — from implementation to AI automation.</span></p>
@@ -4119,9 +4762,10 @@ body.page-mode > .stats-strip{
           <div class="exp-num">100<span>%</span></div>
           <div class="exp-label" data-en="Senior-only delivery team" data-fr="Équipe de livraison senior uniquement">Senior-only delivery team</div>
         </div>
-        <div class="no-juniors-quote">
+        <div class="no-juniors-quote" id="quote-box">
+          <div class="quote-border-dot" id="quote-border-dot"></div>
           <div class="quote-mark">"</div>
-          <p data-en="Every problem has a clue. You found us." data-fr="Chaque problème a une clé. Vous nous avez trouvés." data-en="Every problem has a clue. You found us." data-fr="Chaque problème a une clé. Vous nous avez trouvés.">Every problem has a clue. You found us.</p>
+          <p data-en="Every problem has a CLU. You found us." data-fr="Chaque problème a sa solution. La vôtre s'appelle <span style='background:linear-gradient(90deg,#00C4E0,#00D48A);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-weight:900'>CLUTEK</span>." data-en="Every problem has a clue. You found us." data-fr="Chaque problème a une clé. Vous nous avez trouvés.">Every problem has a <span style="color:#00C4E0;font-weight:900">CLU</span>. You found us.</p>
         </div>
       </div>
     </div>
@@ -4130,28 +4774,70 @@ body.page-mode > .stats-strip{
     <p class="section-eyebrow" style="margin-top:5rem" data-en="Why Clutek" data-fr="Pourquoi Clutek">Why Clutek</p>
     <h2 class="section-h2 gsap-fade"><span data-en="Not an agency." data-fr="Pas une agence.">Not an agency.</span><br><em data-en="dedicated" data-fr="partenaire">dedicated</em> <span data-en="partner." data-fr="dédié.">partner.</span></h2>
     <p class="section-sub gsap-fade" data-en="We keep a small client roster so every project gets our absolute best." data-fr="Nous travaillons avec peu de clients à la fois pour que chaque projet reçoive notre meilleur.">We keep a small client roster so every project gets our absolute best.</p>
-    <div class="why-grid">
-      <div class="why-card gsap-fade">
-        <span class="why-ico" style="color:var(--cyan)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
-        <h4 data-en="Outcome-driven" data-fr="Axé sur les résultats">Outcome-driven</h4>
-        <p data-en="Every decision tied to a business result — not a feature checkbox or billable hour." data-fr="Chaque décision liée à un résultat commercial — pas une case à cocher ou une heure facturable.">Every decision tied to a business result — not a feature checkbox or billable hour.</p>
-      </div>
-      <div class="why-card gsap-fade">
-        <span class="why-ico" style="color:var(--cyan)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
-        <h4 data-en="Clean architecture" data-fr="Architecture propre">Clean architecture</h4>
-        <p data-en="No hacks, no tech debt. Systems built to last years without rebuilding." data-fr="Pas de raccourcis, pas de dette technique. Des systèmes conçus pour durer des années sans reconstruction.">No hacks, no tech debt. Systems built to last years without rebuilding.</p>
-      </div>
-      <div class="why-card gsap-fade">
-        <span class="why-ico" style="color:var(--cyan)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 11l-5-5-5 5"/><path d="M3 17a9 9 0 0118 0"/><line x1="12" y1="6" x2="12" y2="16"/></svg></span>
-        <h4 data-en="Direct access" data-fr="Accès direct">Direct access</h4>
-        <p data-en="You talk to the person doing the work — every call, every update." data-fr="Vous parlez directement à la personne qui fait le travail — chaque appel, chaque mise à jour.">You talk to the person doing the work — every call, every update.</p>
-      </div>
-      <div class="why-card gsap-fade">
-        <span class="why-ico" style="color:var(--cyan)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
-        <h4 data-en="Knowledge transfer" data-fr="Transfert de connaissances">Knowledge transfer</h4>
-        <p data-en="We train your team to be self-sufficient — not dependent on us forever." data-fr="Nous formons votre équipe pour qu'elle soit autonome — pas dépendante de nous pour toujours.">We train your team to be self-sufficient — not dependent on us forever.</p>
-      </div>
+    <div class="why-zigzag">
+
+  <!-- Dashed SVG path connecting all 4 cards -->
+  <svg class="why-path-svg" viewBox="0 0 900 700" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path class="why-path-line" 
+      d="M 220 130 
+         C 220 200, 680 200, 680 300 
+         C 680 380, 220 380, 220 480 
+         C 220 560, 680 560, 680 640"
+      stroke="url(#pathGrad)" stroke-width="2" stroke-dasharray="8 6"
+      fill="none" stroke-linecap="round"/>
+    <defs>
+      <linearGradient id="pathGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#00C4E0" stop-opacity="0.6"/>
+        <stop offset="100%" stop-color="#00D48A" stop-opacity="0.6"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Card 1 — LEFT -->
+  <div class="why-zrow why-zrow-left">
+    <div class="why-card why-zcard" data-delay="0">
+      <div class="why-card-num">01</div>
+      <span class="why-ico" style="color:var(--cyan)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+      <h4 data-en="Outcome-driven" data-fr="Axé sur les résultats">Outcome-driven</h4>
+      <p data-en="Every decision tied to a business result — not a feature checkbox or billable hour." data-fr="Chaque décision liée à un résultat commercial — pas une case à cocher ou une heure facturable.">Every decision tied to a business result — not a feature checkbox or billable hour.</p>
     </div>
+    <div class="why-zspacer"></div>
+  </div>
+
+  <!-- Card 2 — RIGHT -->
+  <div class="why-zrow why-zrow-right">
+    <div class="why-zspacer"></div>
+    <div class="why-card why-zcard" data-delay="150">
+      <div class="why-card-num">02</div>
+      <span class="why-ico" style="color:var(--cyan)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span>
+      <h4 data-en="Clean architecture" data-fr="Architecture propre">Clean architecture</h4>
+      <p data-en="No hacks, no tech debt. Systems built to last years without rebuilding." data-fr="Pas de raccourcis, pas de dette technique. Des systèmes conçus pour durer des années sans reconstruction.">No hacks, no tech debt. Systems built to last years without rebuilding.</p>
+    </div>
+  </div>
+
+  <!-- Card 3 — LEFT -->
+  <div class="why-zrow why-zrow-left">
+    <div class="why-card why-zcard" data-delay="300">
+      <div class="why-card-num">03</div>
+      <span class="why-ico" style="color:var(--cyan)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></span>
+      <h4 data-en="Direct access" data-fr="Accès direct">Direct access</h4>
+      <p data-en="You talk to the person doing the work — every call, every update." data-fr="Vous parlez directement à la personne qui fait le travail — chaque appel, chaque mise à jour.">You talk to the person doing the work — every call, every update.</p>
+    </div>
+    <div class="why-zspacer"></div>
+  </div>
+
+  <!-- Card 4 — RIGHT -->
+  <div class="why-zrow why-zrow-right">
+    <div class="why-zspacer"></div>
+    <div class="why-card why-zcard" data-delay="450">
+      <div class="why-card-num">04</div>
+      <span class="why-ico" style="color:var(--cyan)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2z"/><path d="M22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg></span>
+      <h4 data-en="Knowledge transfer" data-fr="Transfert de connaissances">Knowledge transfer</h4>
+      <p data-en="We train your team to be self-sufficient — not dependent on us forever." data-fr="Nous formons votre équipe pour qu'elle soit autonome — pas dépendante de nous pour toujours.">We train your team to be self-sufficient — not dependent on us forever.</p>
+    </div>
+  </div>
+
+</div>
   </div>
 </section>
 
@@ -4424,9 +5110,9 @@ typedInstance = new Typed('#typed', {
 });
 
 // ── Language Toggle ──
-var currentLang = 'en';
+var currentLang = 'en'; // default, overridden below
 const typedStringsEN = ['Growth.', 'Clients.', 'Portfolio.', 'Future.'];
-const typedStringsFR = ['Succès.', 'Clients.', 'Futur.', 'AUM.'];
+const typedStringsFR = ['Succès.', 'Clients.', 'Futur.', 'Capital.'];
 
 function toggleLang() {
   currentLang = currentLang === 'en' ? 'fr' : 'en';
@@ -4479,6 +5165,9 @@ function toggleLang() {
 
   // Update html lang attribute
   document.documentElement.lang = currentLang;
+
+  // Save user's manual preference
+  localStorage.setItem('clutek-lang', currentLang);
 
   // Translate form placeholders
   document.querySelectorAll('[data-ph-en]').forEach(function(el) {
@@ -4595,7 +5284,7 @@ function goTo(pageId) {
       const footer = document.querySelector('.footer-new');
       if (footer) { footer.style.display = 'block'; footer.style.opacity = '1'; }
       const sepEl = document.querySelector('.page-footer-sep');
-      if (sepEl) { sepEl.style.display = 'block'; sepEl.style.opacity = '1'; }
+      if (sepEl) sepEl.style.display = pageId === 'contact' ? 'none' : 'block';
 
       // Hide stats strip unless going home
       const statsStrip = document.querySelector('.stats-strip');
@@ -4603,7 +5292,7 @@ function goTo(pageId) {
       const vpSection = document.querySelector('.vp-section');
       if (vpSection) vpSection.style.display = pageId === 'home' ? 'grid' : 'none';
       const heroBgLogo = document.querySelector('.hero-bg-logo');
-      if (heroBgLogo) heroBgLogo.style.display = pageId === 'home' ? 'flex' : 'none';
+      if (heroBgLogo) heroBgLogo.style.display = (pageId === 'home' && window.innerWidth > 1440) ? 'flex' : 'none';
 
       // Show target page
       const target = pages[pageId];
@@ -4647,6 +5336,12 @@ function goTo(pageId) {
 
 // Init — show only hero on load
 window.addEventListener('DOMContentLoaded', () => {
+
+  // ── AUTO LANGUAGE DETECTION ──
+  const savedLang = localStorage.getItem('clutek-lang');
+  const browserLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+  const prefersFR = savedLang === 'fr' || (!savedLang && browserLang.startsWith('fr'));
+
   const statsStrip = document.querySelector('.stats-strip');
   const vpSectionEl = document.querySelector('.vp-section');
   Object.entries(pages).forEach(([id, el]) => {
@@ -4662,6 +5357,16 @@ window.addEventListener('DOMContentLoaded', () => {
   // Show home-only extras
   if (statsStrip) statsStrip.style.display = 'flex';
   if (vpSectionEl) vpSectionEl.style.display = 'grid';
+
+  // Trigger FR if detected (after all DOM init is complete)
+  if (prefersFR) {
+    // currentLang is already 'fr', but toggleLang() swaps it — so reset to 'en' first
+    currentLang = 'en';
+    toggleLang();
+    // Sync mobile lang button
+    const mobileBtn = document.getElementById('langToggleMobile');
+    if (mobileBtn) mobileBtn.textContent = 'EN';
+  }
   const sepDomEl = document.querySelector('.page-footer-sep');
   if (sepDomEl) { sepDomEl.style.display = 'block'; sepDomEl.style.opacity = '1'; }
   if (statsStrip) statsStrip.style.display = 'flex';
@@ -4928,6 +5633,126 @@ function footerServiceClick(e, target) {
     setTimeout(function() { scrollToTarget(target); }, 900);
   }
 }
+
+
+// ── MOBILE MENU ──
+function toggleMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  const isOpen = menu.classList.contains('open');
+  if (isOpen) {
+    closeMobileMenu();
+  } else {
+    menu.classList.add('open');
+    btn.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+}
+function closeMobileMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const btn = document.getElementById('hamburger');
+  menu.classList.remove('open');
+  btn.classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close on backdrop click
+document.getElementById('mobileMenu').addEventListener('click', function(e) {
+  if (e.target === this) closeMobileMenu();
+});
+// Sync lang toggle (desktop + mobile both update)
+const origToggle = window.toggleLang;
+window.toggleLang = function() {
+  origToggle();
+  const btn = document.getElementById('langToggle');
+  const btnM = document.getElementById('langToggleMobile');
+  if (btnM && btn) btnM.textContent = btn.textContent;
+};
+
+
+// ── WHY US ZIGZAG SCROLL REVEAL ──
+(function() {
+  const cards = document.querySelectorAll('.why-zcard');
+  const pathSvg = document.querySelector('.why-path-svg');
+  const pathLine = document.querySelector('.why-path-line');
+  let pathStarted = false;
+
+  if (!cards.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const card = entry.target;
+        const delay = parseInt(card.dataset.delay || 0);
+        setTimeout(() => {
+          card.classList.add('in-view');
+        }, delay);
+
+        // Start drawing path on first card visible
+        if (!pathStarted && pathSvg && pathLine) {
+          pathStarted = true;
+          pathSvg.classList.add('visible');
+          pathLine.classList.add('draw');
+        }
+
+        observer.unobserve(card);
+      }
+    });
+  }, {
+    threshold: 0.15,
+    rootMargin: '0px 0px -60px 0px'
+  });
+
+  cards.forEach(card => observer.observe(card));
+})();
+
+
+// ── QUOTE BOX BORDER DOT ANIMATION ──
+(function() {
+  const box = document.getElementById('quote-box');
+  const dot = document.getElementById('quote-border-dot');
+  if (!box || !dot) return;
+
+  let t = 0; // 0 → 1, represents progress around the perimeter
+
+  function animate() {
+    const w = box.offsetWidth;
+    const h = box.offsetHeight;
+    const perimeter = 2 * (w + h);
+    const dist = (t % 1) * perimeter;
+
+    let x, y;
+
+    if (dist < w) {
+      // Top edge: left → right
+      x = dist;
+      y = 0;
+    } else if (dist < w + h) {
+      // Right edge: top → bottom
+      x = w;
+      y = dist - w;
+    } else if (dist < 2 * w + h) {
+      // Bottom edge: right → left
+      x = w - (dist - w - h);
+      y = h;
+    } else {
+      // Left edge: bottom → top
+      x = 0;
+      y = h - (dist - 2 * w - h);
+    }
+
+    dot.style.left = x + 'px';
+    dot.style.top  = y + 'px';
+
+    // Pulse glow
+    const pulse = 1 + 0.2 * Math.sin(Date.now() / 200);
+    dot.style.boxShadow = `0 0 ${8*pulse}px ${3*pulse}px rgba(0,196,224,0.8), 0 0 ${16*pulse}px ${6*pulse}px rgba(0,196,224,0.3)`;
+
+    t += 0.003; // speed — one loop every ~300 frames (~5s at 60fps)
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+})();
 
 </script>
 </body>
